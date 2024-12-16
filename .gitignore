@@ -1,0 +1,30 @@
+### Altium ###
+# Files PrjPcb
+*.PrjPcb
+*.PrjPcb*
+ESP32_Projet.PrjPcb
+
+# Previews Folders
+**/__Previews/
+
+# History Folders
+**/History/*
+
+# Project Logs
+Project Logs*/
+
+# Project Outputs
+Project Outputs*/
+
+# Auto-conversion notices
+*.PcbDoc.htm
+
+# Access lock file for dbLib sources
+**/*.ldb
+
+--/__MACOSX/*
+
+# and the 3d folder
+
+3d*/
+
