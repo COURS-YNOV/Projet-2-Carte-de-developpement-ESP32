@@ -1,0 +1,523 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD24\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">16/12/2024</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">16:47:44</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc" class="file"><acronym title="C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc">C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">22</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Waived Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">32</td></tr>
+</table>
+</td>
+</table><a name="IDG21NICWIJKVZNNPQPOENEI4DSBZ1R3D0B24WQVB1LWJLGC1J2CM"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDKOJLIPAVQHGNMZAU1232FGR1NOABR0HRHL43AMGSMTVOSIUYRSF">Clearance Constraint (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID02SQKIADSCMV3VYUCWWR5YXNOTM5VWCDBJZLD0X5DWPJJ0X5EN">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDFLV55GH2HMAKQBN1KJ2YYBMKGJWSHJX4WS3O3HEVB110UAXXWZG">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">22</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3PRRIB1DKZUCNEWHWFEC3EK5EEHYYEP1BBUA0YLORYX5QYYL4PVD">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLML2SFXBISIBINU1GR53YBIUGCLRWKGOGBQ1FUIMNUG5NVSHFBFM">Width Constraint (Min=0.254mm) (Max=0.254mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVOBP4XMBYXLBEJYD1K2ZYLV3QM35AA1WLMBDCHMKMDRMXR25WLTI">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJXKRVRX0GOYEM1VUBUN2NVFM3FYXUVUNXZOCSHJEYIVNFUUCOL">Hole Size Constraint (Min=0.025mm) (Max=0.35mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFTQW2GFHJO0EJK2QK1PXPYPM3LGTBCPXJD1PBPLS45OUTLWL0FPH">Hole To Hole Clearance (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQDX3V4MGSK5RCTDCZAZW3EF4PDGRPYFAQ5IDV0CRHJ0VTIFBJRJB">Minimum Solder Mask Sliver (Gap=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIR2RNNCSPYHLI13SW024VJOVXMYOOIAV5SRIL2FO5QCHIPNFTSIO">Silk To Solder Mask (Clearance=0mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDR4AUQEMNKGOYLTZIYCAWX4TYR4ZSIGGHLGEA1DKZPKHVX4OZWIC">Silk to Silk (Clearance=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5CZLZOYYUBYTEII1AFTCTTH00HXIFIZJBBVSETIMLSLRKWCQM53J">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUZUTX1H4WPUFDXVDBJUONM4ETFRZV1IQZG5GBQBY0C0A1AC5I4CM">Room IHM (Bounding Region = (26.924mm, 61.468mm, 89.789mm, 76.962mm) (InComponentClass('IHM'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJWZXYX3VHMYVHH0QQGXSR5D2WHHR10LGMFYKBVC0RNARCQMWECTJ">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">22</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Waived Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3XXWRZBRE4BTEZDI1DLGT42DYCWBYVJ4O51J4WFR0JFXNROWHHKB">Hole Size Constraint (Min=0.025mm) (Max=0.35mm) (All)</a></td>
+<td class="column2">23</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5XAMURZDCMACKY5VAPG4XBKUOOUWF5OOKKYNRQGHK4H23TUBHLIB">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">9</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">32</td>
+</tr>
+</table><br><a name="IDNJ1OLS1NFKN1JL2PAJPJ0YLQHL12ZCYYFITWUCHIX0KLRAK3WJX"><h2>Rule Violations</h2></a><a name="IDDFLV55GH2HMAKQBN1KJ2YYBMKGJWSHJX4WS3O3HEVB110UAXXWZG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5612.244mil|Location2.X=5874.685mil|Location1.Y=4090mil|Location2.Y=4293.386mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5612.244mil|Location2.X=5874.685mil|Location1.Y=4090mil|Location2.Y=4293.386mil|Absolute=True">Un-Routed Net Constraint: Net VIN_MCU Between Track (116.126mm,81.026mm)(119.564mm,81.026mm) on Top Layer And Pad B102-9(121.15mm,81.112mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5919.567mil|Location2.X=6205.039mil|Location1.Y=3185.748mil|Location2.Y=3280.039mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5919.567mil|Location2.X=6205.039mil|Location1.Y=3185.748mil|Location2.Y=3280.039mil|Absolute=True">Un-Routed Net Constraint: Net Valim Between Pad B3-5(125.08mm,57.438mm) on Top Layer [Unplated] And Pad B5-5(131.606mm,55.768mm) on Top Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5619.961mil|Location2.X=5851.457mil|Location1.Y=3135.748mil|Location2.Y=3209.646mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5619.961mil|Location2.X=5851.457mil|Location1.Y=3135.748mil|Location2.Y=3209.646mil|Absolute=True">Un-Routed Net Constraint: Net NoT V_USB Between Pad B8-1(117.695mm,54.498mm) on Top Layer [Unplated] And Via (122.625mm,55.65mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5235.945mil|Location2.X=5905mil|Location1.Y=3765mil|Location2.Y=3755mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5235.945mil|Location2.X=5905mil|Location1.Y=3765mil|Location2.Y=3755mil|Absolute=True">Un-Routed Net Constraint: Net D+ Between Pad U200-3(110.006mm,72.771mm) on Top Layer And Track (121.92mm,67.437mm)(121.99mm,67.437mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5255.63mil|Location2.X=5920.433mil|Location1.Y=3765mil|Location2.Y=3890mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5255.63mil|Location2.X=5920.433mil|Location1.Y=3765mil|Location2.Y=3890mil|Absolute=True">Un-Routed Net Constraint: Net D- Between Pad U200-4(110.506mm,72.771mm) on Top Layer And Track (122.312mm,70.866mm)(123.589mm,69.589mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4836.102mil|Location2.X=5213.268mil|Location1.Y=4030.984mil|Location2.Y=4230.984mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4836.102mil|Location2.X=5213.268mil|Location1.Y=4030.984mil|Location2.Y=4230.984mil|Absolute=True">Un-Routed Net Constraint: Net VIN_MCU Between Track (99.85mm,79.527mm)(99.85mm,80.009mm) on Top Layer And Track (104.35mm,79.527mm)(104.368mm,79.545mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5153.032mil|Location2.X=5894.409mil|Location1.Y=4561.417mil|Location2.Y=3510.976mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5153.032mil|Location2.X=5894.409mil|Location1.Y=4561.417mil|Location2.Y=3510.976mil|Absolute=True">Un-Routed Net Constraint: Net Valim Between Track (107.9mm,93mm)(107.95mm,92.95mm) on Top Layer And Track (120.751mm,61.239mm)(121.651mm,61.239mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4086.102mil|Location2.X=5439.154mil|Location1.Y=4463.976mil|Location2.Y=4757.972mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4086.102mil|Location2.X=5439.154mil|Location1.Y=4463.976mil|Location2.Y=4757.972mil|Absolute=True">Un-Routed Net Constraint: Net V_HT Between Via (80.8mm,90.525mm) from Top Layer to Bottom Layer And Track (110.05mm,92.95mm)(110.088mm,92.912mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5462.879mil|Location2.X=6000mil|Location1.Y=3313.688mil|Location2.Y=3210mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5462.879mil|Location2.X=6000mil|Location1.Y=3313.688mil|Location2.Y=3210mil|Absolute=True">Un-Routed Net Constraint: Net V_BT Between Track (115.77mm,61.283mm)(115.77mm,61.308mm) on Top Layer And Via (124.333mm,53.594mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6510mil|Location2.X=6520mil|Location1.Y=2941.496mil|Location2.Y=4920mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6510mil|Location2.X=6520mil|Location1.Y=2941.496mil|Location2.Y=4920mil|Absolute=True">Un-Routed Net Constraint: Track (139.954mm,49.441mm)(139.954mm,99.441mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3754.095mil|Location2.X=6520mil|Location1.Y=2941.496mil|Location2.Y=2951.496mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3754.095mil|Location2.X=6520mil|Location1.Y=2941.496mil|Location2.Y=2951.496mil|Absolute=True">Un-Routed Net Constraint: Track (69.954mm,49.441mm)(139.954mm,49.441mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3754.095mil|Location2.X=3764.095mil|Location1.Y=2941.496mil|Location2.Y=4920mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3754.095mil|Location2.X=3764.095mil|Location1.Y=2941.496mil|Location2.Y=4920mil|Absolute=True">Un-Routed Net Constraint: Track (69.954mm,49.441mm)(69.954mm,99.441mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3754.095mil|Location2.X=6520mil|Location1.Y=4910mil|Location2.Y=4920mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3754.095mil|Location2.X=6520mil|Location1.Y=4910mil|Location2.Y=4920mil|Absolute=True">Un-Routed Net Constraint: Track (69.954mm,99.441mm)(139.954mm,99.441mm) on Top Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4002.284mil|Location2.X=4632.733mil|Location1.Y=4417.283mil|Location2.Y=4737.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4002.284mil|Location2.X=4632.733mil|Location1.Y=4417.283mil|Location2.Y=4737.267mil|Absolute=True">Un-Routed Net Constraint: Net FB Between Track (78.671mm,89.339mm)(78.74mm,89.408mm) on Top Layer And Track (89.604mm,92.387mm)(90.297mm,91.694mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4983.205mil|Location2.X=5440.039mil|Location1.Y=4546.827mil|Location2.Y=4765.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4983.205mil|Location2.X=5440.039mil|Location1.Y=4546.827mil|Location2.Y=4765.748mil|Absolute=True">Un-Routed Net Constraint: Net V_BT Between Via (101.521mm,90.564mm) from Top Layer to Bottom Layer And Via (112.175mm,95.175mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5172.605mil|Location2.X=5550.276mil|Location1.Y=4095.472mil|Location2.Y=4181.2mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5172.605mil|Location2.X=5550.276mil|Location1.Y=4095.472mil|Location2.Y=4181.2mil|Absolute=True">Un-Routed Net Constraint: Net VIN_MCU Between Via (106.332mm,80.327mm) from Top Layer to Bottom Layer And Via (114.975mm,79.1mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5321.299mil|Location2.X=5550.276mil|Location1.Y=3423.952mil|Location2.Y=4132.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5321.299mil|Location2.X=5550.276mil|Location1.Y=3423.952mil|Location2.Y=4132.874mil|Absolute=True">Un-Routed Net Constraint: Net VIN_MCU Between Via (110.109mm,62.043mm) from Top Layer to Bottom Layer And Via (114.975mm,79.1mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5402.638mil|Location2.X=5624.095mil|Location1.Y=3472.441mil|Location2.Y=4765.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5402.638mil|Location2.X=5624.095mil|Location1.Y=3472.441mil|Location2.Y=4765.748mil|Absolute=True">Un-Routed Net Constraint: Net V_BT Between Via (112.175mm,95.175mm) from Top Layer to Bottom Layer And Via (116.85mm,63.275mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5412.48mil|Location2.X=5813.071mil|Location1.Y=3076.772mil|Location2.Y=4675.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5412.48mil|Location2.X=5813.071mil|Location1.Y=3076.772mil|Location2.Y=4675.197mil|Absolute=True">Un-Routed Net Constraint: Net V_HT Between Via (112.425mm,92.875mm) from Top Layer to Bottom Layer And Via (121.65mm,53.225mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5819.961mil|Location2.X=6435.118mil|Location1.Y=3401.575mil|Location2.Y=4101.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5819.961mil|Location2.X=6435.118mil|Location1.Y=3401.575mil|Location2.Y=4101.378mil|Absolute=True">Un-Routed Net Constraint: Net VIN_MCU Between Via (122.775mm,78.3mm) from Top Layer to Bottom Layer And Via (137.45mm,61.475mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4415.433mil|Location2.X=4637.874mil|Location1.Y=3893.701mil|Location2.Y=4132.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4415.433mil|Location2.X=4637.874mil|Location1.Y=3893.701mil|Location2.Y=4132.874mil|Absolute=True">Un-Routed Net Constraint: Net VIN_MCU Between Via (87.1mm,73.975mm) from Top Layer to Bottom Layer And Via (91.8mm,79.1mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4600.472mil|Location2.X=4758.701mil|Location1.Y=4026.299mil|Location2.Y=4132.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4600.472mil|Location2.X=4758.701mil|Location1.Y=4026.299mil|Location2.Y=4132.874mil|Absolute=True">Un-Routed Net Constraint: Net VIN_MCU Between Via (91.8mm,79.1mm) from Top Layer to Bottom Layer And Via (94.869mm,77.343mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDENIEL1G5SZIUJ52IPKOOM1RJELZCY12NTRY4AXPHIKHA5PQ1J1ZN"><h2>Waived Violations</h2></a><a name="ID3XXWRZBRE4BTEZDI1DLGT42DYCWBYVJ4O51J4WFR0JFXNROWHHKB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Hole Size Constraint (Min=0.025mm) (Max=0.35mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3594.375mil|Location2.Y=3612.099mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3594.375mil|Location2.Y=3612.099mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-A1(124.037mm,66.113mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3828.627mil|Location2.Y=3846.351mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3828.627mil|Location2.Y=3846.351mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-A12(124.037mm,72.063mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3627.84mil|Location2.Y=3645.564mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3627.84mil|Location2.Y=3645.564mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-A4(124.037mm,66.963mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3661.304mil|Location2.Y=3679.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3661.304mil|Location2.Y=3679.028mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-A5(124.037mm,67.813mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3694.769mil|Location2.Y=3712.493mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3694.769mil|Location2.Y=3712.493mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-A6(124.037mm,68.663mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3728.233mil|Location2.Y=3745.958mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3728.233mil|Location2.Y=3745.958mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-A7(124.037mm,69.513mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3761.698mil|Location2.Y=3779.422mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3761.698mil|Location2.Y=3779.422mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-A8(124.037mm,70.363mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3795.162mil|Location2.Y=3812.887mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5879.847mil|Location2.X=5897.469mil|Location1.Y=3795.162mil|Location2.Y=3812.887mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-A9(124.037mm,71.213mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3828.627mil|Location2.Y=3846.351mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3828.627mil|Location2.Y=3846.351mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-B1(125.387mm,72.063mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3594.375mil|Location2.Y=3612.099mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3594.375mil|Location2.Y=3612.099mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-B12(125.387mm,66.113mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3795.162mil|Location2.Y=3812.887mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3795.162mil|Location2.Y=3812.887mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-B4(125.387mm,71.213mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3761.698mil|Location2.Y=3779.422mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3761.698mil|Location2.Y=3779.422mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-B5(125.387mm,70.363mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3728.233mil|Location2.Y=3745.958mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3728.233mil|Location2.Y=3745.958mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-B6(125.387mm,69.513mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3694.769mil|Location2.Y=3712.493mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3694.769mil|Location2.Y=3712.493mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-B7(125.387mm,68.663mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3661.304mil|Location2.Y=3679.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5932.997mil|Location2.X=5950.619mil|Location1.Y=3661.304mil|Location2.Y=3679.028mil|Absolute=True">Hole Size Constraint: (0.4mm &gt; 0.35mm) Pad J200-B8(125.387mm,67.813mm) on Multi-Layer Actual Hole Size = 0.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6031.816mil|Location2.X=6088.184mil|Location1.Y=3521.54mil|Location2.Y=3577.908mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6031.816mil|Location2.X=6088.184mil|Location1.Y=3521.54mil|Location2.Y=3577.908mil|Absolute=True">Hole Size Constraint: (0.6mm &gt; 0.35mm) Pad J200-S1(128.397mm,64.763mm) on Multi-Layer Actual Slot Hole Height = 0.6mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6031.816mil|Location2.X=6088.184mil|Location1.Y=3521.54mil|Location2.Y=3577.908mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6031.816mil|Location2.X=6088.184mil|Location1.Y=3521.54mil|Location2.Y=3577.908mil|Absolute=True">Hole Size Constraint: (1.4mm &gt; 0.35mm) Pad J200-S1(128.397mm,64.763mm) on Multi-Layer Actual Slot Hole Width = 1.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6031.816mil|Location2.X=6088.184mil|Location1.Y=3862.092mil|Location2.Y=3918.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6031.816mil|Location2.X=6088.184mil|Location1.Y=3862.092mil|Location2.Y=3918.46mil|Absolute=True">Hole Size Constraint: (0.6mm &gt; 0.35mm) Pad J200-S2(128.397mm,73.413mm) on Multi-Layer Actual Slot Hole Height = 0.6mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6031.816mil|Location2.X=6088.184mil|Location1.Y=3862.092mil|Location2.Y=3918.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6031.816mil|Location2.X=6088.184mil|Location1.Y=3862.092mil|Location2.Y=3918.46mil|Absolute=True">Hole Size Constraint: (1.4mm &gt; 0.35mm) Pad J200-S2(128.397mm,73.413mm) on Multi-Layer Actual Slot Hole Width = 1.4mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5884.966mil|Location2.X=5968.893mil|Location1.Y=3507.761mil|Location2.Y=3591.688mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5884.966mil|Location2.X=5968.893mil|Location1.Y=3507.761mil|Location2.Y=3591.688mil|Absolute=True">Hole Size Constraint: (0.6mm &gt; 0.35mm) Pad J200-S3(125.017mm,64.763mm) on Multi-Layer Actual Slot Hole Height = 0.6mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5884.966mil|Location2.X=5968.893mil|Location1.Y=3507.761mil|Location2.Y=3591.688mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5884.966mil|Location2.X=5968.893mil|Location1.Y=3507.761mil|Location2.Y=3591.688mil|Absolute=True">Hole Size Constraint: (2.1mm &gt; 0.35mm) Pad J200-S3(125.017mm,64.763mm) on Multi-Layer Actual Slot Hole Width = 2.1mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5884.966mil|Location2.X=5968.893mil|Location1.Y=3848.312mil|Location2.Y=3932.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5884.966mil|Location2.X=5968.893mil|Location1.Y=3848.312mil|Location2.Y=3932.239mil|Absolute=True">Hole Size Constraint: (0.6mm &gt; 0.35mm) Pad J200-S4(125.017mm,73.413mm) on Multi-Layer Actual Slot Hole Height = 0.6mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5884.966mil|Location2.X=5968.893mil|Location1.Y=3848.312mil|Location2.Y=3932.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5884.966mil|Location2.X=5968.893mil|Location1.Y=3848.312mil|Location2.Y=3932.239mil|Absolute=True">Hole Size Constraint: (2.1mm &gt; 0.35mm) Pad J200-S4(125.017mm,73.413mm) on Multi-Layer Actual Slot Hole Width = 2.1mm</acronym></a><br>Waived by Bertil at 16/12/2024 16:29:55<br>Its composents Hole/Pin</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID5XAMURZDCMACKY5VAPG4XBKUOOUWF5OOKKYNRQGHK4H23TUBHLIB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4946.382mil|Location2.X=4984.798mil|Location1.Y=3946.303mil|Location2.Y=4005.056mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4946.382mil|Location2.X=4984.798mil|Location1.Y=3946.303mil|Location2.Y=4005.056mil|Absolute=True">Net Antennae: Via (100.5mm,75.225mm) from Top Layer to Bottom Layer </acronym></a><br>Waived by Bertil at 16/12/2024 16:30:38<br>Its GND for MCU / Impossible to touch this directly</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4946.382mil|Location2.X=4984.798mil|Location1.Y=3989.61mil|Location2.Y=4048.363mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4946.382mil|Location2.X=4984.798mil|Location1.Y=3989.61mil|Location2.Y=4048.363mil|Absolute=True">Net Antennae: Via (100.5mm,76.325mm) from Top Layer to Bottom Layer </acronym></a><br>Waived by Bertil at 16/12/2024 16:30:38<br>Its GND for MCU / Impossible to touch this directly</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4946.382mil|Location2.X=4984.798mil|Location1.Y=4032.917mil|Location2.Y=4091.67mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4946.382mil|Location2.X=4984.798mil|Location1.Y=4032.917mil|Location2.Y=4091.67mil|Absolute=True">Net Antennae: Via (100.5mm,77.425mm) from Top Layer to Bottom Layer </acronym></a><br>Waived by Bertil at 16/12/2024 16:30:38<br>Its GND for MCU / Impossible to touch this directly</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4989.689mil|Location2.X=5028.105mil|Location1.Y=3946.303mil|Location2.Y=4005.056mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4989.689mil|Location2.X=5028.105mil|Location1.Y=3946.303mil|Location2.Y=4005.056mil|Absolute=True">Net Antennae: Via (101.6mm,75.225mm) from Top Layer to Bottom Layer </acronym></a><br>Waived by Bertil at 16/12/2024 16:30:38<br>Its GND for MCU / Impossible to touch this directly</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4989.689mil|Location2.X=5028.105mil|Location1.Y=3989.61mil|Location2.Y=4048.363mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4989.689mil|Location2.X=5028.105mil|Location1.Y=3989.61mil|Location2.Y=4048.363mil|Absolute=True">Net Antennae: Via (101.6mm,76.325mm) from Top Layer to Bottom Layer </acronym></a><br>Waived by Bertil at 16/12/2024 16:30:38<br>Its GND for MCU / Impossible to touch this directly</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4989.689mil|Location2.X=5028.105mil|Location1.Y=4032.917mil|Location2.Y=4091.67mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4989.689mil|Location2.X=5028.105mil|Location1.Y=4032.917mil|Location2.Y=4091.67mil|Absolute=True">Net Antennae: Via (101.6mm,77.425mm) from Top Layer to Bottom Layer </acronym></a><br>Waived by Bertil at 16/12/2024 16:30:38<br>Its GND for MCU / Impossible to touch this directly</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5032.996mil|Location2.X=5071.412mil|Location1.Y=3946.303mil|Location2.Y=4005.056mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5032.996mil|Location2.X=5071.412mil|Location1.Y=3946.303mil|Location2.Y=4005.056mil|Absolute=True">Net Antennae: Via (102.7mm,75.225mm) from Top Layer to Bottom Layer </acronym></a><br>Waived by Bertil at 16/12/2024 16:30:38<br>Its GND for MCU / Impossible to touch this directly</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5032.996mil|Location2.X=5071.412mil|Location1.Y=3989.61mil|Location2.Y=4048.363mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5032.996mil|Location2.X=5071.412mil|Location1.Y=3989.61mil|Location2.Y=4048.363mil|Absolute=True">Net Antennae: Via (102.7mm,76.325mm) from Top Layer to Bottom Layer </acronym></a><br>Waived by Bertil at 16/12/2024 16:30:38<br>Its GND for MCU / Impossible to touch this directly</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 M%C3%A9cat\Conception %C3%89lectronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5032.996mil|Location2.X=5071.412mil|Location1.Y=4032.917mil|Location2.Y=4091.67mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5032.996mil|Location2.X=5071.412mil|Location1.Y=4032.917mil|Location2.Y=4091.67mil|Absolute=True">Net Antennae: Via (102.7mm,77.425mm) from Top Layer to Bottom Layer </acronym></a><br>Waived by Bertil at 16/12/2024 16:30:38<br>Its GND for MCU / Impossible to touch this directly</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

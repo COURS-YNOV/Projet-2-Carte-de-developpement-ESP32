@@ -1,0 +1,111 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Thales\Desktop\M1 Mécat\Conception Électronique\Cours\Projet equipe 4\Github\Projet-2-Carte-de-developpement-ESP32\ESP32_Project\PCB1.PcbDoc
+Date     : 16/12/2024
+Time     : 16:47:44
+
+Processing Rule : Clearance Constraint (Gap=0.1mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net VIN_MCU Between Track (116.126mm,81.026mm)(119.564mm,81.026mm) on Top Layer And Pad B102-9(121.15mm,81.112mm) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net Valim Between Pad B3-5(125.08mm,57.438mm) on Top Layer [Unplated] And Pad B5-5(131.606mm,55.768mm) on Top Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net NoT V_USB Between Pad B8-1(117.695mm,54.498mm) on Top Layer [Unplated] And Via (122.625mm,55.65mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net D+ Between Pad U200-3(110.006mm,72.771mm) on Top Layer And Track (121.92mm,67.437mm)(121.99mm,67.437mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net D- Between Pad U200-4(110.506mm,72.771mm) on Top Layer And Track (122.312mm,70.866mm)(123.589mm,69.589mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net VIN_MCU Between Track (99.85mm,79.527mm)(99.85mm,80.009mm) on Top Layer And Track (104.35mm,79.527mm)(104.368mm,79.545mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net Valim Between Track (107.9mm,93mm)(107.95mm,92.95mm) on Top Layer And Track (120.751mm,61.239mm)(121.651mm,61.239mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net V_HT Between Via (80.8mm,90.525mm) from Top Layer to Bottom Layer And Track (110.05mm,92.95mm)(110.088mm,92.912mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net V_BT Between Track (115.77mm,61.283mm)(115.77mm,61.308mm) on Top Layer And Via (124.333mm,53.594mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Track (139.954mm,49.441mm)(139.954mm,99.441mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (69.954mm,49.441mm)(139.954mm,49.441mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (69.954mm,49.441mm)(69.954mm,99.441mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Track (69.954mm,99.441mm)(139.954mm,99.441mm) on Top Layer Dead Copper - Net Not Assigned.
+   Violation between Un-Routed Net Constraint: Net FB Between Track (78.671mm,89.339mm)(78.74mm,89.408mm) on Top Layer And Track (89.604mm,92.387mm)(90.297mm,91.694mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net V_BT Between Via (101.521mm,90.564mm) from Top Layer to Bottom Layer And Via (112.175mm,95.175mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VIN_MCU Between Via (106.332mm,80.327mm) from Top Layer to Bottom Layer And Via (114.975mm,79.1mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VIN_MCU Between Via (110.109mm,62.043mm) from Top Layer to Bottom Layer And Via (114.975mm,79.1mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net V_BT Between Via (112.175mm,95.175mm) from Top Layer to Bottom Layer And Via (116.85mm,63.275mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net V_HT Between Via (112.425mm,92.875mm) from Top Layer to Bottom Layer And Via (121.65mm,53.225mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VIN_MCU Between Via (122.775mm,78.3mm) from Top Layer to Bottom Layer And Via (137.45mm,61.475mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VIN_MCU Between Via (87.1mm,73.975mm) from Top Layer to Bottom Layer And Via (91.8mm,79.1mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net VIN_MCU Between Via (91.8mm,79.1mm) from Top Layer to Bottom Layer And Via (94.869mm,77.343mm) from Top Layer to Bottom Layer 
+Rule Violations :22
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=0.254mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=0.35mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.1mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Room IHM (Bounding Region = (26.924mm, 61.468mm, 89.789mm, 76.962mm) (InComponentClass('IHM'))
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Waived Violations Of Rule : Hole Size Constraint (Min=0.025mm) (Max=0.35mm) (All)
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-A1(124.037mm,66.113mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-A12(124.037mm,72.063mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-A4(124.037mm,66.963mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-A5(124.037mm,67.813mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-A6(124.037mm,68.663mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-A7(124.037mm,69.513mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-A8(124.037mm,70.363mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-A9(124.037mm,71.213mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-B1(125.387mm,72.063mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-B12(125.387mm,66.113mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-B4(125.387mm,71.213mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-B5(125.387mm,70.363mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-B6(125.387mm,69.513mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-B7(125.387mm,68.663mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.4mm > 0.35mm) Pad J200-B8(125.387mm,67.813mm) on Multi-Layer Actual Hole Size = 0.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.6mm > 0.35mm) Pad J200-S1(128.397mm,64.763mm) on Multi-Layer Actual Slot Hole Height = 0.6mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (1.4mm > 0.35mm) Pad J200-S1(128.397mm,64.763mm) on Multi-Layer Actual Slot Hole Width = 1.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.6mm > 0.35mm) Pad J200-S2(128.397mm,73.413mm) on Multi-Layer Actual Slot Hole Height = 0.6mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (1.4mm > 0.35mm) Pad J200-S2(128.397mm,73.413mm) on Multi-Layer Actual Slot Hole Width = 1.4mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.6mm > 0.35mm) Pad J200-S3(125.017mm,64.763mm) on Multi-Layer Actual Slot Hole Height = 0.6mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (2.1mm > 0.35mm) Pad J200-S3(125.017mm,64.763mm) on Multi-Layer Actual Slot Hole Width = 2.1mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (0.6mm > 0.35mm) Pad J200-S4(125.017mm,73.413mm) on Multi-Layer Actual Slot Hole Height = 0.6mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+   Waived Violation between Hole Size Constraint: (2.1mm > 0.35mm) Pad J200-S4(125.017mm,73.413mm) on Multi-Layer Actual Slot Hole Width = 2.1mmWaived by Bertil at 16/12/2024 16:29:55Its composents Hole/Pin
+Waived Violations :23
+
+Waived Violations Of Rule : Net Antennae (Tolerance=0mm) (All)
+   Waived Violation between Net Antennae: Via (100.5mm,75.225mm) from Top Layer to Bottom Layer Waived by Bertil at 16/12/2024 16:30:38Its GND for MCU / Impossible to touch this directly
+   Waived Violation between Net Antennae: Via (100.5mm,76.325mm) from Top Layer to Bottom Layer Waived by Bertil at 16/12/2024 16:30:38Its GND for MCU / Impossible to touch this directly
+   Waived Violation between Net Antennae: Via (100.5mm,77.425mm) from Top Layer to Bottom Layer Waived by Bertil at 16/12/2024 16:30:38Its GND for MCU / Impossible to touch this directly
+   Waived Violation between Net Antennae: Via (101.6mm,75.225mm) from Top Layer to Bottom Layer Waived by Bertil at 16/12/2024 16:30:38Its GND for MCU / Impossible to touch this directly
+   Waived Violation between Net Antennae: Via (101.6mm,76.325mm) from Top Layer to Bottom Layer Waived by Bertil at 16/12/2024 16:30:38Its GND for MCU / Impossible to touch this directly
+   Waived Violation between Net Antennae: Via (101.6mm,77.425mm) from Top Layer to Bottom Layer Waived by Bertil at 16/12/2024 16:30:38Its GND for MCU / Impossible to touch this directly
+   Waived Violation between Net Antennae: Via (102.7mm,75.225mm) from Top Layer to Bottom Layer Waived by Bertil at 16/12/2024 16:30:38Its GND for MCU / Impossible to touch this directly
+   Waived Violation between Net Antennae: Via (102.7mm,76.325mm) from Top Layer to Bottom Layer Waived by Bertil at 16/12/2024 16:30:38Its GND for MCU / Impossible to touch this directly
+   Waived Violation between Net Antennae: Via (102.7mm,77.425mm) from Top Layer to Bottom Layer Waived by Bertil at 16/12/2024 16:30:38Its GND for MCU / Impossible to touch this directly
+Waived Violations :9
+
+
+Violations Detected : 22
+Waived Violations : 32
+Time Elapsed        : 00:00:00
