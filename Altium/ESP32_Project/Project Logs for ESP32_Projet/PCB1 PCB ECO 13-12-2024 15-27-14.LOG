@@ -1,0 +1,48 @@
+Removed Pin From Net: NetName=A Pin=B300-2
+Removed Pin From Net: NetName=C Pin=B300-5
+Removed Pin From Net: NetName=C Pin=B301-4
+Removed Pin From Net: NetName=A Pin=B302-1
+Removed Pin From Net: NetName=B Pin=C601-2
+Removed Pin From Net: NetName=B Pin=DARR301-2
+Removed Pin From Net: NetName=B Pin=L601-2
+Removed Pin From Net: NetName=B Pin=R603-1
+Add Component: Footprint Not Found RESC2212X50N
+Add Component: Footprint Not Found SPKR_PKLCS1212E40A1-R1
+Added Pin To Net: NetName=A Pin=B300-1
+Added Pin To Net: NetName=C Pin=B303-2
+Add Pin To Net: Unknown Pin: Pin B502-1
+Add Pin To Net: Unknown Pin: Pin B502-2
+Added Pin To Net: NetName=3v3BT Pin=C601-2
+Added Pin To Net: NetName=3v3BT Pin=DARR301-2
+Add Pin To Net: Unknown Pin: Pin J901-3
+Add Pin To Net: Unknown Pin: Pin J901-4
+Add Pin To Net: Unknown Pin: Pin J901-5
+Add Pin To Net: Unknown Pin: Pin J901-6
+Add Pin To Net: Unknown Pin: Pin J901-7
+Add Pin To Net: Unknown Pin: Pin J901-8
+Add Pin To Net: Unknown Pin: Pin J901-11
+Add Pin To Net: Unknown Pin: Pin J901-12
+Add Pin To Net: Unknown Pin: Pin J901-13
+Add Pin To Net: Unknown Pin: Pin J901-14
+Add Pin To Net: Unknown Pin: Pin J901-15
+Add Pin To Net: Unknown Pin: Pin J901-16
+Added Pin To Net: NetName=3v3BT Pin=L601-2
+Add Pin To Net: Unknown Pin: Pin LS400-N
+Add Pin To Net: Unknown Pin: Pin LS400-P
+Added Pin To Net: NetName=A Pin=Q300-3
+Added Pin To Net: NetName=C Pin=Q302-3
+Added Pin To Net: NetName=3v3BT Pin=R603-1
+Change Net Name : Old Net Name=A New Net Name=3v3USB
+Change Net Name : Old Net Name=C New Net Name=3v3HT
+Added Pin To Net: NetName=A Pin=B300-2
+Added Pin To Net: NetName=A Pin=B302-1
+Added Net: Name=A
+Added Pin To Net: NetName=C Pin=B300-5
+Added Pin To Net: NetName=C Pin=B301-4
+Added Net: Name=C
+Add Class Member: Failed to add class member : Component B502 NB12K00103JBB
+Add Class Member: Failed to add class member : Component J901 825433-8
+Add Class Member: Failed to add class member : Component LS400 PKLCS1212E40A1-R1
+Added Rule: Name=Schematic Supply Nets_11
+Added Rule: Name=Schematic Supply Nets_12
+Added Rule: Name=Schematic Supply Nets_13

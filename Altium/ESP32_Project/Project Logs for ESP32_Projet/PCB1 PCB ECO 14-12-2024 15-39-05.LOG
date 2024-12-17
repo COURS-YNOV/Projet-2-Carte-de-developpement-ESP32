@@ -1,0 +1,28 @@
+Add Component: Footprint Not Found RESC2212X50N
+Add Component: Footprint Not Found SPKR_PKLCS1212E40A1-R1
+Added Pin To Net: NetName=NetJ900_1 Pin=B500-4
+Added Pin To Net: NetName=NetJ900_2 Pin=B500-5
+Add Pin To Net: Unknown Pin: Pin B502-1
+Add Pin To Net: Unknown Pin: Pin B502-2
+Add Pin To Net: Unknown Pin: Pin J901-3
+Add Pin To Net: Unknown Pin: Pin J901-4
+Add Pin To Net: Unknown Pin: Pin J901-5
+Add Pin To Net: Unknown Pin: Pin J901-6
+Add Pin To Net: Unknown Pin: Pin J901-7
+Add Pin To Net: Unknown Pin: Pin J901-8
+Add Pin To Net: Unknown Pin: Pin J901-11
+Add Pin To Net: Unknown Pin: Pin J901-12
+Add Pin To Net: Unknown Pin: Pin J901-13
+Add Pin To Net: Unknown Pin: Pin J901-14
+Add Pin To Net: Unknown Pin: Pin J901-15
+Add Pin To Net: Unknown Pin: Pin J901-16
+Add Pin To Net: Unknown Pin: Pin LS400-N
+Add Pin To Net: Unknown Pin: Pin LS400-P
+Added Pin To Net: NetName=NetJ900_2 Pin=R500-1
+Added Pin To Net: NetName=NetJ900_1 Pin=R501-1
+Added Pin To Net: NetName=NetB501_5 Pin=U800-16
+Change Net Name : Old Net Name=NetJ900_1 New Net Name=NetB500_4
+Change Net Name : Old Net Name=NetJ900_2 New Net Name=NetB500_5
+Add Class Member: Failed to add class member : Component B502 NB12K00103JBB
+Add Class Member: Failed to add class member : Component J901 825433-8
+Add Class Member: Failed to add class member : Component LS400 PKLCS1212E40A1-R1

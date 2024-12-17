@@ -1,0 +1,40 @@
+Added Component: Designator=B400(CMT850385BSMTTR)
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Same Sky"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "CMT-8503-85B-SMT-TR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "490-CMT-850385BSMTTR"; VariantName = "[No Variations]"
+Added Component: Designator=B502(RESC2212X50N)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "NB12K00103JBB"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/nb12k00103jbb/avx"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DGA6/551314.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Geometry.Height"; Value = "0.5mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Kyocera AVX"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "NB12K00103JBB"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "581-NB12K00103JBB"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/AVX/NB12K00103JBB/?qs=4%252B6%252BTdINQeDPvI%252BQUQjJ3Q%3D%3D"; VariantName = "[No Variations]"
+Added Component: Designator=J901(Connect-Mikronus)
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "825433-8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "571-825433-8"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3V3 Pin=B400-1
+Added Pin To Net: NetName=GND Pin=B400-MP1
+Added Pin To Net: NetName=GND Pin=B400-MP2
+Added Pin To Net: NetName=GND Pin=B502-1
+Added Pin To Net: NetName=NetB502_2 Pin=B502-2
+Added Pin To Net: NetName=NetJ901_3 Pin=J901-3
+Added Pin To Net: NetName=NetJ901_4 Pin=J901-4
+Added Pin To Net: NetName=NetB501_3 Pin=J901-5
+Added Pin To Net: NetName=NetJ901_6 Pin=J901-6
+Added Pin To Net: NetName=3V3 Pin=J901-7
+Added Pin To Net: NetName=GND Pin=J901-8
+Added Pin To Net: NetName=NetJ901_11 Pin=J901-11
+Added Pin To Net: NetName=NetJ901_12 Pin=J901-12
+Added Pin To Net: NetName=NetB500_5 Pin=J901-13
+Added Pin To Net: NetName=NetB500_4 Pin=J901-14
+Added Pin To Net: NetName=3V3 Pin=J901-15
+Added Pin To Net: NetName=GND Pin=J901-16
+Added Pin To Net: NetName=NetB400_4 Pin=B400-4
+Added Pin To Net: NetName=NetB400_4 Pin=Q400-3
+Added Net: Name=NetB400_4
+Added Member To Class: ClassName=IHM Member=Component B400 CMT-8503-85B-SMT-TR
+Added Member To Class: ClassName=Mesure Member=Component B502 NB12K00103JBB
+Added Member To Class: ClassName=Extensibilite Member=Component J901 825433-8

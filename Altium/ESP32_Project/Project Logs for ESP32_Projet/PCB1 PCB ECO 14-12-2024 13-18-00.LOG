@@ -1,0 +1,37 @@
+Change Component Footprint: Designator=SW400 Old Footprint=TECO-FSM4JSMATR_V New Footprint=TECO-FSM4JSMATR_V
+Change Component Footprint: Designator=SW401 Old Footprint=TECO-FSM4JSMATR_V New Footprint=TECO-FSM4JSMATR_V
+Add Component: Footprint Not Found RESC2212X50N
+Add Component: Footprint Not Found SPKR_PKLCS1212E40A1-R1
+Added Pin To Net: NetName=NetC600_2 Pin=B300-1
+Added Pin To Net: NetName=NetC601_2 Pin=B300-3
+Added Pin To Net: NetName=A Pin=B301-1
+Added Pin To Net: NetName=NetC606_2 Pin=B303-2
+Add Pin To Net: Unknown Pin: Pin B502-1
+Add Pin To Net: Unknown Pin: Pin B502-2
+Add Pin To Net: Unknown Pin: Pin J901-3
+Add Pin To Net: Unknown Pin: Pin J901-4
+Add Pin To Net: Unknown Pin: Pin J901-5
+Add Pin To Net: Unknown Pin: Pin J901-6
+Add Pin To Net: Unknown Pin: Pin J901-7
+Add Pin To Net: Unknown Pin: Pin J901-8
+Add Pin To Net: Unknown Pin: Pin J901-11
+Add Pin To Net: Unknown Pin: Pin J901-12
+Add Pin To Net: Unknown Pin: Pin J901-13
+Add Pin To Net: Unknown Pin: Pin J901-14
+Add Pin To Net: Unknown Pin: Pin J901-15
+Add Pin To Net: Unknown Pin: Pin J901-16
+Add Pin To Net: Unknown Pin: Pin LS400-N
+Add Pin To Net: Unknown Pin: Pin LS400-P
+Added Pin To Net: NetName=NetC600_2 Pin=Q300-3
+Added Pin To Net: NetName=NetC601_2 Pin=Q301-3
+Added Pin To Net: NetName=NetC606_2 Pin=Q302-3
+Added Pin To Net: NetName=A Pin=R300-1
+Change Net Name : Old Net Name=NetC600_2 New Net Name=3v3USB
+Change Net Name : Old Net Name=NetC601_2 New Net Name=3v3BT
+Change Net Name : Old Net Name=NetC606_2 New Net Name=3v3HT
+Add Class Member: Failed to add class member : Component B502 NB12K00103JBB
+Add Class Member: Failed to add class member : Component J901 825433-8
+Add Class Member: Failed to add class member : Component LS400 PKLCS1212E40A1-R1
+Added Rule: Name=Schematic Supply Nets_8
+Added Rule: Name=Schematic Supply Nets_9
+Added Rule: Name=Schematic Supply Nets_10
